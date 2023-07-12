@@ -7,7 +7,6 @@ export const Landing = () => {
   return (
     <>
       <Navbar />
-      <Banner />
       <About />
     </>
   );

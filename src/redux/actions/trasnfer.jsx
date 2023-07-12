@@ -8,6 +8,7 @@ import { setIsLoading } from "./ui";
 export const startTransferTo = (amount, accountNumber, senderUserId) => {
   return (dispatch) => {
     dispatch(setIsLoading(true));
+    
     axios
       .post("http://localhost:4000/api/v1/transfers", {
         amount,
