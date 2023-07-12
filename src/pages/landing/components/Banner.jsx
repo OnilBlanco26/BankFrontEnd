@@ -42,7 +42,10 @@ export const Banner = () => {
 
   return (
     <section className="">
-      <button className="mt-14 w-[25%] bg-gradient-to-r from-yellow-500/75 to-yellow-100 py-2 rounded-md  shadow-md font-bold text-gray-300 hover:bg-none hover:text-white hover:border-2 hover:border-orange hover transition-all duration-300" onClick={openModal}>
+      <button
+        className="mt-14 w-[25%] bg-gradient-to-r from-yellow-500/75 to-yellow-100 py-2 rounded-md  shadow-md font-bold text-gray-300 hover:bg-none hover:text-white hover:border-2 hover:border-orange hover transition-all duration-300"
+        onClick={openModal}
+      >
         Registrate Aqui!
       </button>
       {modalIsOpen ? (
@@ -53,7 +56,11 @@ export const Banner = () => {
           className="min-w-[30vw] flex flex-col justify-start items-center z-30 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50  rounded-lg backdrop-blur-md py-14"
           contentLabel="Example Modal"
         >
-          <img className="w-12 h-12 absolute top-2 right-2" src="../../../../public/assets/creditCard.png" alt="" />
+          <img
+            className="w-12 h-12 absolute top-2 right-2"
+            src="../assets/creditCard.png"
+            alt=""
+          />
           <h2 className="text-white font-bold mb-2 text-xl">
             Registrate Ahora!
           </h2>

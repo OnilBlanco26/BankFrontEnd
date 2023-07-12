@@ -1,8 +1,9 @@
 import React from "react";
-import imgMoney from "../../../../public/assets/money.jpg";
-import imgBuild from "../../../../public/assets/build.jpg";
 import Login from "../../home/components/Login";
 import { Banner } from "./Banner";
+import bankImage from "../../../assets/bankImage.png"
+
+
 
 export const About = () => {
   return (
@@ -47,7 +48,7 @@ export const About = () => {
       <div className="w-1/2">
         <img
           className="w-full relative -top-10"
-          src="../../../../public/assets/bankImage.png"
+          src={bankImage}
           alt=""
         />
       </div>

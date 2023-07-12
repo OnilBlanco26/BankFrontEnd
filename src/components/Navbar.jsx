@@ -1,5 +1,4 @@
 import React from "react";
-import Login from "../pages/home/components/Login";
 import { useSelector } from "react-redux";
 
 export const Navbar = () => {

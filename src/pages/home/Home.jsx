@@ -7,15 +7,14 @@ import { DeleteAccount } from "./components/DeleteAccount";
 import { HistoryTransfer } from "./components/HistoryTransfer";
 import { Transfer } from "./components/Transfer";
 import { startLogout } from "../../redux/actions/auth";
-import bgCard from "../../../public/assets/bgCard.jpg";
-
+import bgCard from "../../assets/bgCard.jpg";
+import logoMastercard from "../../assets/logo-Mastercard.png"
 
 export const Home = () => {
   const dispatch = useDispatch();
 
-  const [isActive, setIsActive] = useState("transfer")
+  const [isActive, setIsActive] = useState("transfer");
   const [time, setTime] = useState("");
-
 
   const { accountNumber, amount, name, createdAt } = useSelector(
     (state) => state.auth
@@ -34,10 +33,10 @@ export const Home = () => {
     dispatch(startLogout());
   };
 
-  const handleIsActive = (e,value) => {
-    e.preventDefault()
-    setIsActive(value)
-  }
+  const handleIsActive = (e, value) => {
+    e.preventDefault();
+    setIsActive(value);
+  };
 
   return (
     <div className="m-8 text-white font-poppins">
@@ -61,7 +60,7 @@ export const Home = () => {
                 </div>
                 <img
                   className="absolute top-6 right-4 w-12"
-                  src="../../../public/assets/logo-Mastercard.png"
+                  src={logoMastercard}
                   alt=""
                 />
                 <div className="relative top-28 left-4">
@@ -114,18 +113,21 @@ export const Home = () => {
 
       <div className="w-[80%] mx-auto mt-10 flex flex-col justify-center items-center">
         <nav className="w-[40%] mt-1 flex justify-around align-middle border border-orange rounded-lg mb-10">
-        <button onClick={(e) => handleIsActive(e,'transfer')} className={`${isActive === 'transfer' ? 'bg-orange text-gray-300' : 'bg-gray-200 text-gray-100 hover:text-orange active:bg-orange active:text-gray-300'}  w-full text-base text-center font-nunito m-2.5   border-0 cursor-pointer rounded capitalize font-semibold`}>
-              Transferido
-            </button>
-            {/* <button onClick={(e) => handleIsActive(e,'received')} className={`${isActive === 'received' ? 'bg-orange text-gray-300' : 'bg-gray-200 text-gray-100 hover:text-orange active:bg-orange active:text-gray-300'}  w-full text-base text-center font-nunito m-2.5   border-0 cursor-pointer rounded capitalize font-semibold`}>
+          <button
+            onClick={(e) => handleIsActive(e, "transfer")}
+            className={`${
+              isActive === "transfer"
+                ? "bg-orange text-gray-300"
+                : "bg-gray-200 text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
+            }  w-full text-base text-center font-nunito m-2.5   border-0 cursor-pointer rounded capitalize font-semibold`}
+          >
+            Transferido
+          </button>
+          {/* <button onClick={(e) => handleIsActive(e,'received')} className={`${isActive === 'received' ? 'bg-orange text-gray-300' : 'bg-gray-200 text-gray-100 hover:text-orange active:bg-orange active:text-gray-300'}  w-full text-base text-center font-nunito m-2.5   border-0 cursor-pointer rounded capitalize font-semibold`}>
               Recibido
             </button> */}
-         
         </nav>
-        {
-          isActive === 'transfer' ? <HistoryTransfer /> : <p>Vacio</p>
-        }
-        
+        {isActive === "transfer" ? <HistoryTransfer /> : <p>Vacio</p>}
       </div>
     </div>
   );
