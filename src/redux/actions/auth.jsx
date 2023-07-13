@@ -2,16 +2,19 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { types } from "../types/types";
 import { setIsLoading } from "./ui";
-import getConfig from '../../helpers/getConfig';
+import getConfig from "../../helpers/getConfig";
 
 export const startLogin = (accountNumber, password) => {
   return (dispatch) => {
     dispatch(setIsLoading(true));
     axios
-      .post("http://localhost:4000/api/v1/users/login", {
-        accountNumber,
-        password,
-      })
+      .post(
+        "https://bankapp-production-57d1.up.railway.app/api/v1/users/login",
+        {
+          accountNumber,
+          password,
+        }
+      )
       .then((resp) => {
         localStorage.setItem("token", resp.data.token);
         dispatch(
@@ -45,7 +48,10 @@ export const startRegister = (name, password) => {
   return (dispatch) => {
     dispatch(setIsLoading(true));
     axios
-      .post("http://localhost:4000/api/v1/users/signup", { name, password })
+      .post(
+        "https://bankapp-production-57d1.up.railway.app/api/v1/users/signup",
+        { name, password }
+      )
       .then((resp) => {
         localStorage.setItem("token", resp.data.token);
         dispatch(
@@ -80,11 +86,11 @@ export const startChecking = () => {
     dispatch(setIsLoading(true));
     axios
       .get(
-        "http://localhost:4000/api/v1/users/renew",
+        "https://bankapp-production-57d1.up.railway.app/api/v1/users/renew",
         getConfig()
       )
       .then((resp) => {
-        console.log('LEEME! 🙌', resp)
+        console.log("LEEME! 🙌", resp);
         localStorage.setItem("token", resp.data.token);
         dispatch(
           login({
@@ -100,7 +106,7 @@ export const startChecking = () => {
       })
       .finally(() => dispatch(setIsLoading(false)));
   };
-}
+};
 
 const login = (user) => ({
   type: types.authLogin,

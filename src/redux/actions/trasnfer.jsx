@@ -8,16 +8,19 @@ import { setIsLoading } from "./ui";
 export const startTransferTo = (amount, accountNumber, senderUserId) => {
   return (dispatch) => {
     dispatch(setIsLoading(true));
-    
+
     axios
-      .post("http://localhost:4000/api/v1/transfers", {
-        amount,
-        accountNumber,
-        senderUserId,
-      },
-      getConfig())
+      .post(
+        "https://bankapp-production-57d1.up.railway.app/api/v1/transfers",
+        {
+          amount,
+          accountNumber,
+          senderUserId,
+        },
+        getConfig()
+      )
       .then((resp) => {
-        console.log(resp)
+        console.log(resp);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -25,8 +28,8 @@ export const startTransferTo = (amount, accountNumber, senderUserId) => {
           showConfirmButton: false,
           timer: 1500,
         });
-        dispatch(startGetHistoryTransfer(senderUserId))
-        dispatch(startChecking())
+        dispatch(startGetHistoryTransfer(senderUserId));
+        dispatch(startChecking());
       })
       .catch((error) => {
         Swal.fire({
@@ -44,7 +47,10 @@ export const startGetHistoryTransfer = (id) => {
   return (dispatch) => {
     dispatch(setIsLoading(true));
     axios
-      .get(`http://localhost:4000/api/v1/users/${id}/history`, getConfig())
+      .get(
+        `https://bankapp-production-57d1.up.railway.app/api/v1/users/${id}/history`,
+        getConfig()
+      )
       .then((resp) => {
         console.log(resp);
         dispatch(historyTransfer(resp.data.transfer));
@@ -62,73 +68,81 @@ export const startGetHistoryTransfer = (id) => {
 };
 
 export const startConsign = (data) => {
-  return ( dispatch, getState ) => {
-    dispatch(setIsLoading(true))
-    const { auth } = getState()
-    console.log(auth)
-    axios.post('http://localhost:4000/api/v1/transfers/upload', {
-      amount: data.amount,
-      userId: auth.id
-    }, getConfig())
-    .then(resp => {
-      dispatch(startChecking())
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: resp.data.message,
-        showConfirmButton: false,
-        timer: 2500
+  return (dispatch, getState) => {
+    dispatch(setIsLoading(true));
+    const { auth } = getState();
+    console.log(auth);
+    axios
+      .post(
+        "https://bankapp-production-57d1.up.railway.app/api/v1/transfers/upload",
+        {
+          amount: data.amount,
+          userId: auth.id,
+        },
+        getConfig()
+      )
+      .then((resp) => {
+        dispatch(startChecking());
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: resp.data.message,
+          showConfirmButton: false,
+          timer: 2500,
+        });
       })
-    })
-    .catch(error => {
-      console.log(error)
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: error.message,
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+        });
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
       });
-    })
-    .finally(() => {
-      dispatch(setIsLoading(false))
-    })
-
-  }
-}
+  };
+};
 
 export const startDeleteAccount = (data) => {
-  return ( dispatch, getState ) => {
-    dispatch(setIsLoading(true))
-    const { auth } = getState()
-    console.log(auth)
-    axios.patch(`http://localhost:4000/api/v1/users/close/account/${auth.id}`, {
-      accountNumber: data.accountNumber,
-      password: data.password
-    }, getConfig())
-    .then(resp => {
-      dispatch(startChecking())
-      dispatch(startLogout())
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: resp.data.message,
-        showConfirmButton: false,
-        timer: 2500
+  return (dispatch, getState) => {
+    dispatch(setIsLoading(true));
+    const { auth } = getState();
+    console.log(auth);
+    axios
+      .patch(
+        `https://bankapp-production-57d1.up.railway.app/api/v1/users/close/account/${auth.id}`,
+        {
+          accountNumber: data.accountNumber,
+          password: data.password,
+        },
+        getConfig()
+      )
+      .then((resp) => {
+        dispatch(startChecking());
+        dispatch(startLogout());
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: resp.data.message,
+          showConfirmButton: false,
+          timer: 2500,
+        });
       })
-    })
-    .catch(error => {
-      console.log(error)
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: error.message,
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+        });
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
       });
-    })
-    .finally(() => {
-      dispatch(setIsLoading(false))
-    })
-
-  }
-}
+  };
+};
 
 const historyTransfer = (history) => ({
   type: types.historyTransfer,
