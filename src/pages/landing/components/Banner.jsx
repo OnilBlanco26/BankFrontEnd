@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { startRegister } from "../../../redux/actions/auth";
 import { motion } from "framer-motion";
+import creditCard from "../../../assets/creditCard.png"
 
 export const Banner = () => {
   const modalRef = useRef(null);
@@ -58,7 +59,7 @@ export const Banner = () => {
         >
           <img
             className="w-12 h-12 absolute top-2 right-2"
-            src="../assets/creditCard.png"
+            src={creditCard}
             alt=""
           />
           <h2 className="text-white font-bold mb-2 text-xl">
