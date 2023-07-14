@@ -98,7 +98,7 @@ export const Home = () => {
                 <h3 className="text-white font-bold text-md md:text-2xl">
                   Saldo Disponible:
                 </h3>
-                <h3 className="text-green md:text-md border-dotted border-2 border-green p-1 shadow-sm shadow-gray-100">
+                <h3 className=" bg-green/90 text-white md:text-md border-dotted border-2 border-green p-1 shadow-sm shadow-gray-100">
                   {amount} $USD
                 </h3>
               </div>

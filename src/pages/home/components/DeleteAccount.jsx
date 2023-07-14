@@ -57,7 +57,7 @@ export const DeleteAccount = () => {
             initial={{ scale: 0, opacity: 0, x: "-50%", y: "-50%" }}
             animate={{ scale: 1, opacity: 1 }}
             ref={modalRef}
-            className="min-w-[40vw] h-[400px] flex flex-col justify-start items-center z-30 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50  rounded-lg backdrop-blur-md py-14"
+            className="w-[90%] sm:max-w-[60%] md:max-w-[40%] lg:max-w-[30%] h-[460px] flex flex-col justify-start items-center z-30 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50  rounded-lg backdrop-blur-md py-14"
             contentLabel="Example Modal"
           >
             <img
@@ -65,30 +65,30 @@ export const DeleteAccount = () => {
               src={creditCard}
               alt=""
             />
-            <h2 className="text-white font-bold mb-2 text-xl">
+            <h2 className="text-white font-bold mb-2 text-2xl sm:text-xl">
               Eliminar Cuenta
             </h2>
             <form
               className="w-full flex justify-center items-center flex-col gap-4 mt-10"
               onSubmit={handleSubmit(submit)}
             >
-              <div className="w-[80%] flex items-center justify-between">
+              <div className="w-[95%] sm:w-[80%] flex flex-col items-center justify-between">
                 <input
-                  className="bg-transparent border-4 border-double border-red rounded-md p-2 w-1/2 placeholder:text-white"
+                  className="bg-transparent border-4 border-double border-red rounded-md p-2 w-full placeholder:text-white"
                   type="text"
                   {...register("accountNumber")}
                 />
-                <span className="text-white text-center font-bold text-2xl">
+                <span className="text-white text-center font-bold text-md sm:text-2xl">
                   Confirmar Cuenta
                 </span>
               </div>
-              <div className="w-[80%] flex items-center justify-between">
+              <div className="w-[95%] sm:w-[80%] flex flex-col items-center justify-between">
                 <input
-                  className="bg-transparent border-4 border-double border-red rounded-md p-2 w-1/2 placeholder:text-white"
+                  className="bg-transparent border-4 border-double border-red rounded-md p-2 w-full placeholder:text-white"
                   type="number"
                   {...register("password")}
                 />
-                <span className="text-white font-bold text-2xl">
+                <span className="text-white font-bold text-md sm:text-2xl">
                   Confirmar Password
                 </span>
               </div>
