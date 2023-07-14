@@ -189,8 +189,8 @@ export const Navbar = () => {
             <p className="hover:scale-125 transition-all duration-300 active:scale-50">
               Home
             </p>
-            <Element name="Personal Banking" />
-            <Element name="Corporate Banking" />
+            <Element name="Banco personal" />
+            <Element name="Banco corporativo" />
           </div>
           </nav>
         </motion.div>

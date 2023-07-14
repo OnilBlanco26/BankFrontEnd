@@ -85,7 +85,7 @@ export const Banner = () => {
             <input
               className="w-[45%] bg-gradient-to-r from-yellow-500/75 to-yellow-100 py-2 rounded-md  shadow-md font-bold text-white hover:bg-none hover:text-white hover:border-2 hover:border-orange hover transition-all duration-300 mt-4"
               type="submit"
-              value="Register"
+              value="Registrarse"
             />
           </form>
         </motion.div>
