@@ -50,7 +50,7 @@ export const DeleteAccount = () => {
           className="bg-red/50 flex justify-center items-center"
           onClick={openModal}
         >
-          <img className="w-24" src={deleteIcon} alt="Delete" />
+          <img className="w-16 sm:w-24" src={deleteIcon} alt="Delete" />
         </button>
         {modalIsOpen ? (
           <motion.div
@@ -103,7 +103,7 @@ export const DeleteAccount = () => {
 
         {/* */}
       </div>
-      <span className="text-center font-bold">Eliminar</span>
+      <span className="text-xs md:text-md text-center font-bold">Eliminar</span>
     </div>
   );
 };

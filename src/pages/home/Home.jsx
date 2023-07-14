@@ -39,38 +39,38 @@ export const Home = () => {
   };
 
   return (
-    <div className="m-8 text-white font-poppins">
+    <div className="m-2 md:m-8 text-white font-poppins">
       <section className="flex items-center justify-center ">
         <div
-          className="bg-cover bg-no-repeat bg-center w-[80%] h-[500px] rounded-md shadow-sm flex flex-col gap-8 p-3 items-center justify-center justify-items-center relative"
+          className="bg-cover bg-no-repeat bg-center w-full md:w-[80%] h-[600px] md:h-[500px] rounded-md shadow-sm flex flex-col gap-8 p-3 items-center justify-center justify-items-center relative"
           style={{ backgroundImage: `url(${bgCard})` }}
         >
-          <h5 className="w-1/2 top-2 left-2 text-3xl text-center font-bold text-white relative mb-2">
+          <h5 className="w-full xs:w-[50%] md:w-[30%] top-10 md:top-2 md:left-2 text-2xl md:text-3xl text-center font-bold text-white relative mb-1">
             {time}
           </h5>
-          <div className="flex flex-row justify-center items-centerz w-full h-full gap-8">
+          <div className="flex flex-col md:flex-row justify-center items-center w-full h-full gap-8">
             <div className="flex flex-col justify-center items-center">
-              <div className="w-96 h-[220px] bg-black/80 rounded-lg backdrop-blur-md flex flex-col shadow-md">
-                <h2 className="text-2xl font-semibold relative top-5 left-5 text-relieve">
+              <div className=" w-64 sm:w-80 md:w-96 h-[150px] sm:h-[175px] md:h-[220px] bg-black/80 rounded-lg backdrop-blur-md flex flex-col shadow-md mt-14 md:mt-0 relative">
+                <h2 className="text-sm sm:text-md md:text-2xl font-semibold relative top-5 left-5 text-relieve">
                   PixelHub Bank
                 </h2>
-                <div className="flex absolute top-20 w-full">
+                <div className="flex absolute top-16 w-full">
                   <div className="bg-white h-[1px] w-1/2"></div>
                   <div className="bg-white h-[1px] w-[20%] -rotate-[35deg] origin-left"></div>
                 </div>
                 <img
-                  className="absolute top-6 right-4 w-12"
+                  className="absolute top-6 right-4 w-8 md:w-12"
                   src={logoMastercard}
                   alt=""
                 />
-                <div className="relative top-28 left-4">
-                  <h4 className="text-md text-relieve w-[75%]">
+                <div className="relative top-20 md:top-28 left-4">
+                  <h4 className="text-sm sm:text-[19px] md:text-md text-relieve w-[75%]">
                     {" "}
                     {accountNumber.match(/.{1,4}/g)?.join(" ")}
                   </h4>
-                  <h4 className="text-md font-normal">{name}</h4>
+                  <h4 className="text-sm sm:text-[19px] md:text-md font-normal">{name}</h4>
                 </div>
-                <i className="absolute bottom-4 right-6 fa-solid fa-building-columns text-4xl text-white text-relieve"></i>
+                <i className="absolute bottom-4 right-6 fa-solid fa-building-columns text-[21px] md:text-4xl text-white text-relieve"></i>
               </div>
 
               <div className="flex flex-row gap-2 mt-4">
@@ -80,13 +80,13 @@ export const Home = () => {
               </div>
             </div>
 
-            <div className="w-[50%] h-[90%] bg-white/20 backdrop-blur-sm mt-2 shadow-md rounded flex flex-col items-center relative">
-              <h2 className="text-white font-bold text-3xl mt-2">
+            <div className="w-full sm:w-[80%] md:w-[50%] h-[90%] bg-white/20 backdrop-blur-sm mt-2 shadow-md rounded flex flex-col items-center relative mb-10 pb-5">
+              <h2 className="text-white font-bold text-md md:text-3xl mt-2">
                 Informacion Personal
               </h2>
 
               <div className="px-2 mt-2 w-full flex justify-between items-center">
-                <h3 className="text-white font-bold text-2xl">
+                <h3 className="text-white font-bold text-md md:text-2xl">
                   Fecha de Creacion:
                 </h3>
                 <h3 className="text-green font-bold text-md border-dotted border-2 border-green p-1 shadow-sm shadow-gray-100">
@@ -95,10 +95,10 @@ export const Home = () => {
               </div>
 
               <div className="px-2 mt-2 w-full flex justify-between items-center">
-                <h3 className="text-white font-bold text-2xl">
+                <h3 className="text-white font-bold text-md md:text-2xl">
                   Saldo Disponible:
                 </h3>
-                <h3 className="text-green text-md border-dotted border-2 border-green p-1 shadow-sm shadow-gray-100">
+                <h3 className="text-green md:text-md border-dotted border-2 border-green p-1 shadow-sm shadow-gray-100">
                   {amount} $USD
                 </h3>
               </div>
@@ -106,12 +106,12 @@ export const Home = () => {
           </div>
         </div>
 
-        <button className="absolute top-10 right-11" onClick={logout}>
+        <button className="absolute top-4 right-4 sm:top-10 sm:right-11" onClick={logout}>
           <i className="fa-solid fa-arrow-right-from-bracket text-red text-4xl"></i>
         </button>
       </section>
 
-      <div className="w-[80%] mx-auto mt-10 flex flex-col justify-center items-center">
+      <div className="w-full sm:w-[80%] mx-auto mt-10 flex flex-col justify-center items-center">
         <nav className="w-[40%] mt-1 flex justify-around align-middle border border-orange rounded-lg mb-10">
           <button
             onClick={(e) => handleIsActive(e, "transfer")}

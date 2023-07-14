@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import prestamoIcon from "../../../assets/prestamoIcon.png"
 import creditCard from "../../../assets/creditCard.png"
 
-export const Consign = () => {
+export const Consign = ({showModal}) => {
   const modalRef = useRef(null);
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(showModal);
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
@@ -51,7 +51,7 @@ export const Consign = () => {
           onClick={openModal}
         >
           <img
-            className="w-24"
+            className="w-16 sm:w-24"
             src={prestamoIcon}
             alt="Prestamo"
           />
@@ -102,7 +102,7 @@ export const Consign = () => {
 
         {/*  */}
       </div>
-      <span className="text-center font-bold">Prestamo</span>
+      <span className="text-xs md:text-md text-center font-bold">Prestamo</span>
     </div>
   );
 };

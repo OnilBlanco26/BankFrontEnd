@@ -6,10 +6,10 @@ export const HistoryTransfer = () => {
   const { transfers } = useSelector((state) => state.transfers);
 
   return (
-    <div className="border-2 rounded w-full ">
+    <div className="border-2 rounded w-full">
       <div className="overflow-y-scroll h-[500px]">
         <table className="w-full table-auto">
-          <thead className="capitalize text-base text-gray-100 font-medium border-b-[1px] border-gray-100">
+          <thead className="capitalize text-xs sm:text-base text-gray-100 font-medium border-b-[1px] border-gray-100">
             <tr>
               <th className="py-1">Numero De Cuenta</th>
               <th className="py-1">Fecha</th>
@@ -22,7 +22,7 @@ export const HistoryTransfer = () => {
               return (
                 <tr
                   key={data.id}
-                  className="text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0"
+                  className="text-center text-xs sm:text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0"
                 >
                   <td className="py-4">
                     <span>{data.receiverUserAccount}</span>

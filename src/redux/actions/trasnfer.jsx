@@ -22,7 +22,6 @@ export const startTransferTo = (amount, accountNumber, senderUserId) => {
       .then((resp) => {
         console.log(resp);
         Swal.fire({
-          position: "top-end",
           icon: "success",
           title: resp.data.message,
           showConfirmButton: false,
@@ -35,7 +34,7 @@ export const startTransferTo = (amount, accountNumber, senderUserId) => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "An error has occurred, please contact the administrator",
+          text: "Ha ocurrido un error, por favor contactar con el administrador",
         });
         console.log(error);
       })
@@ -59,7 +58,7 @@ export const startGetHistoryTransfer = (id) => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "An error has occurred, please contact the administrator",
+          text: "Se ha producido un error, póngase en contacto con el administrador.",
         });
         console.log(error);
       })
@@ -84,7 +83,6 @@ export const startConsign = (data) => {
       .then((resp) => {
         dispatch(startChecking());
         Swal.fire({
-          position: "top-end",
           icon: "success",
           title: resp.data.message,
           showConfirmButton: false,
@@ -123,7 +121,6 @@ export const startDeleteAccount = (data) => {
         dispatch(startChecking());
         dispatch(startLogout());
         Swal.fire({
-          position: "top-end",
           icon: "success",
           title: resp.data.message,
           showConfirmButton: false,

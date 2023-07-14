@@ -26,7 +26,7 @@ export const startLogin = (accountNumber, password) => {
           })
         );
         Swal.fire({
-          position: "top-end",
+
           icon: "success",
           title: resp.data.message,
           showConfirmButton: false,
@@ -63,7 +63,6 @@ export const startRegister = (name, password) => {
           })
         );
         Swal.fire({
-          position: "top-end",
           icon: "success",
           title: resp.data.message,
           showConfirmButton: false,
@@ -74,7 +73,7 @@ export const startRegister = (name, password) => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Something went wrong!",
+          text: "Algo salió mal!",
         });
       })
       .finally(() => dispatch(setIsLoading(false)));

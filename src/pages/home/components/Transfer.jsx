@@ -52,7 +52,7 @@ export const Transfer = () => {
           onClick={openModal}
         >
           <img
-            className="w-24"
+            className="w-16 sm:w-24"
             src={transferIcon}
             alt="Transfer"
           />
@@ -111,7 +111,7 @@ export const Transfer = () => {
         ) : null}
         {/* */}
       </div>
-      <span className="text-center font-bold">Transferir</span>
+      <span className="text-xs md:text-md text-center font-bold">Transferir</span>
     </div>
   );
 };
